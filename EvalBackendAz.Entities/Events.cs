@@ -10,7 +10,7 @@ namespace EvalBackendAz.Entities
     public class Events
     {
         [Key]
-        public Guid Id {  get; set; }
+        public Guid Id {  get; set; }= Guid.NewGuid();
 
         public string Title { get; set; }
 

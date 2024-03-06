@@ -1,4 +1,5 @@
 using EvalBackendAz.DAL;
+using EvalBackendAz.Repository;
 using EvalBackendAz.Repository.Contracts;
 using EvalBackendAz.Services;
 using EvalBackendAz.Services.Contracts;
@@ -17,8 +18,10 @@ var host = new HostBuilder()
         services.AddDbContext<EvalBackendAzDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("EvalBackendAZ")));
 
+        services.AddScoped<IEventServices, EventServices>();
 
-       
+        services.AddScoped<IEventsRepository, EventsRepository>();
+
 
 
     })
