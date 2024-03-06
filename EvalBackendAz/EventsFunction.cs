@@ -105,6 +105,28 @@ namespace EvalBackendAz
             }
         }
 
+        [Function("DeleteEventsFunction")]
+        public async Task<HttpResponseData> DeleteEvent([HttpTrigger(AuthorizationLevel.Function, "delete", Route = "events/{id}")] HttpRequestData req, Guid id)
+        {
+            try
+            {
+                await _eventServices.DeleteEventsAsync(id);
+
+                return req.CreateResponse(HttpStatusCode.NoContent); 
+            }
+            catch (KeyNotFoundException ex)
+            {
+                _logger.LogError($"Event not fund: {ex}");
+                return req.CreateResponse(HttpStatusCode.NotFound);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Internal server error: {ex}");
+                return req.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
+
 
 
 

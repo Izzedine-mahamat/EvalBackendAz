@@ -33,6 +33,11 @@ namespace EvalBackendAz.Services
             return await _eventsRepository.UpdateEventsAsync(events);
         }
 
+        public async Task DeleteEventsAsync(Guid id)
+        {
+            await _eventsRepository.DeleteEventsAsync(id);
+        }
+
 
     }
 }

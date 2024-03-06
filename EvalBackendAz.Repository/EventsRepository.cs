@@ -43,6 +43,18 @@ namespace EvalBackendAz.Repository
             return events;
         }
 
+        public async Task DeleteEventsAsync(Guid id)
+        {
+            var eventToDelete = await _DbContext.events.FirstOrDefaultAsync(e => e.Id == id);
+            if (eventToDelete == null)
+            {
+                throw new KeyNotFoundException("Event not fund.");
+            }
+
+            _DbContext.events.Remove(eventToDelete);
+            await _DbContext.SaveChangesAsync();
+        }
+
 
 
 

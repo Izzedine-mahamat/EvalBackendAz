@@ -13,6 +13,7 @@ namespace EvalBackendAz.Services.Contracts
         public Task  AddEventsAsync(Events events);
         Task<IEnumerable<Events>> GetAllEventsAsync();
         Task<Events> UpdateEventsAsync(Events events);
+        Task DeleteEventsAsync(Guid id);
 
 
     }

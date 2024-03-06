@@ -13,5 +13,6 @@ namespace EvalBackendAz.Repository.Contracts
         Task<Events> AddEventsAsync(Events events);
         Task<IEnumerable<Events>> GetAllEventsAsync();
         Task<Events> UpdateEventsAsync(Events events);
+        Task DeleteEventsAsync(Guid id);
     }
 }
