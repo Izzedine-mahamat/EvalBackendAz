@@ -36,6 +36,13 @@ namespace EvalBackendAz.Repository
             return await _DbContext.events.ToListAsync();
         }
 
+        public async Task<Events> UpdateEventsAsync(Events events)
+        {
+            _DbContext.events.Update(events);
+            await _DbContext.SaveChangesAsync();
+            return events;
+        }
+
 
 
 
