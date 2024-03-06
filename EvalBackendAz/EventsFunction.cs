@@ -55,6 +55,28 @@ namespace EvalBackendAz
             }
         }
 
+        [Function("GetAllEventsFunction")]
+        public async Task<HttpResponseData> GetAll([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "events")] HttpRequestData req)
+        {
+            try
+            {
+                var allEvents = await _eventServices.GetAllEventsAsync();
+
+                var response = req.CreateResponse(HttpStatusCode.OK);
+                response.Headers.Add("Content-Type", "application/json");
+
+                await response.WriteStringAsync(JsonConvert.SerializeObject(allEvents));
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Internal server error: {ex}");
+                return req.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
+
 
 
 

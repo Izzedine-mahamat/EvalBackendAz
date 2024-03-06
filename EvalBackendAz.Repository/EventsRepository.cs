@@ -2,6 +2,7 @@
 using EvalBackendAz.DAL.Migrations;
 using EvalBackendAz.Entities;
 using EvalBackendAz.Repository.Contracts;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Internal;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,13 @@ namespace EvalBackendAz.Repository
             return events;
         }
 
-    
+        public async Task<IEnumerable<Events>> GetAllEventsAsync()
+        {
+            return await _DbContext.events.ToListAsync();
+        }
+
+
+
+
     }
 }

@@ -11,5 +11,6 @@ namespace EvalBackendAz.Repository.Contracts
     {
 
         Task<Events> AddEventsAsync(Events events);
+        Task<IEnumerable<Events>> GetAllEventsAsync();
     }
 }

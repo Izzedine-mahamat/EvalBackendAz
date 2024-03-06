@@ -24,6 +24,11 @@ namespace EvalBackendAz.Services
             await _eventsRepository.AddEventsAsync(events);
         }
 
+        public async Task<IEnumerable<Events>> GetAllEventsAsync()
+        {
+            return await _eventsRepository.GetAllEventsAsync();
+        }
+
 
     }
 }
