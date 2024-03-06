@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EvalBackendAz.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EvalBackendAz.DAL
 {
@@ -16,6 +17,9 @@ namespace EvalBackendAz.DAL
                 optionsBuilder.UseSqlServer("EvalBackendAZ");
             }
         }
+
+       public  DbSet<Events> events { get; set; }
+
 
 
 

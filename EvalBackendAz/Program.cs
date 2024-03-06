@@ -1,4 +1,7 @@
 using EvalBackendAz.DAL;
+using EvalBackendAz.Repository.Contracts;
+using EvalBackendAz.Services;
+using EvalBackendAz.Services.Contracts;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +16,11 @@ var host = new HostBuilder()
         var configuration = context.Configuration;
         services.AddDbContext<EvalBackendAzDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("EvalBackendAZ")));
+
+
+       
+
+
     })
     .Build();
 

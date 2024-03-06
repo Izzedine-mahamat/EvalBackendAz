@@ -7,6 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Azure.Core.NewtonsoftJson" Version="2.0.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.20.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
@@ -17,6 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EvalBackendAz.DAL\EvalBackendAz.DAL.csproj" />
+    <ProjectReference Include="..\EvalBackendAz.Repository.Contracts\EvalBackendAz.Repository.Contracts.csproj" />
+    <ProjectReference Include="..\EvalBackendAz.Repository\EvalBackendAz.Repository.csproj" />
+    <ProjectReference Include="..\EvalBackendAz.Services.Contracts\EvalBackendAz.Services.Contracts.csproj" />
+    <ProjectReference Include="..\EvalBackendAZ.Services\EvalBackendAz.Services.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
